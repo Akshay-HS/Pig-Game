@@ -40,3 +40,4 @@ function setCurrentValue(currentPlayer, currentRoll){
     const Player2CurrentScore=document.getElementById("current--1");
     Player2CurrentScore.textContent="0";
  }
+
