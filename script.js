@@ -5,6 +5,7 @@ function randomNumber() {
   let currentRoll = Math.floor(Math.random() * 6) + 1;
   document.getElementById('dice-img').src = `dice-${currentRoll}.png`;
   if (currentRoll == 1) {
+    ColorSwitch();
     //sum = 0;
     if (currentPlayer == 0) {
       document.getElementById('current--0').textContent = 0;
@@ -39,6 +40,7 @@ function restart() {
 }
 
 function HoldCurrentStored() {
+  ColorSwitch();
   sum = 0;
   index = currentPlayer;
   if (currentPlayer == 0) {
@@ -46,6 +48,7 @@ function HoldCurrentStored() {
   } else {
     currentPlayer = 0;
   }
+
   let currentvalue = document.getElementById(`current--${index}`).textContent;
   let storedvalue = document.getElementById(`score--${index}`).textContent;
   let currentvalueint = parseInt(currentvalue);
@@ -57,4 +60,11 @@ function HoldCurrentStored() {
     currentvalueint.toString();
   document.getElementById(`score--${index}`).textContent =
     storedvalueint.toString();
+}
+
+function ColorSwitch()
+{
+  let s=document.getElementsByTagName("section");
+s[0].classList.toggle("player--active");
+s[1].classList.toggle("player--active");
 }
