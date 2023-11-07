@@ -1,5 +1,3 @@
-Certainly! Here's an overall description for your project:
-
 # Pig Game
 
 The Pig Game is an interactive and entertaining two-player dice game that consists of two main parts: the Login Page and the Pig Game itself.
