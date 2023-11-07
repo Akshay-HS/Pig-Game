@@ -77,13 +77,13 @@ function HoldCurrentStored() {
   document.getElementById(`score--${index}`).textContent =
     storedvalueint.toString();
   checkWinner();
-  const percentage = (storedvalueint / 100) * 100;
-  updateProgressBar(index, storedvalueint);
-}
-function updateProgressBar(player, value) {
-  const progressBar = document.getElementById(`progress-bar-${player}`);
-  value = Math.max(0, Math.min(value, 100));
-  progressBar.style.height = `${value}%`; // Use height to adjust the vertical progress
+//   const percentage = (storedvalueint / 100) * 100;
+//   updateProgressBar(index, storedvalueint);
+// }
+// function updateProgressBar(player, value) {
+//   const progressBar = document.getElementById(`progress-bar-${player}`);
+//   value = Math.max(0, Math.min(value, 100));
+//   progressBar.style.height = `${value}%`; // Use height to adjust the vertical progress
 }
 
 function checkWinner() {
@@ -94,14 +94,16 @@ function checkWinner() {
     document.getElementById('score--1').textContent
   );
 
-  if (scorePlayer0 >= 20) {
+  if (scorePlayer0 >= 100) {
     const player0Section = document.querySelector('.player--0');
     player0Section.classList.add('player--winner');
+    setTimeout(restart, 3000);
     
   }
-  if (scorePlayer1 >= 20) {
+  if (scorePlayer1 >= 100) {
     const player1Section = document.querySelector('.player--1');
     player1Section.classList.add('player--winner');
+    setTimeout(restart, 3000);
     
   }
 }
