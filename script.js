@@ -44,6 +44,7 @@ function restart() {
   Player1Score.textContent = '0';
   const Player1CurrentScore = document.getElementById('current--0');
   Player1CurrentScore.textContent = '0';
+
   //setting score and current score of Player 2 to initial state
   const Player2Score = document.getElementById('score--1');
   Player2Score.textContent = '0';
@@ -54,6 +55,9 @@ function restart() {
   player0Section.classList.remove('player--winner');
   const player1Section = document.querySelector('.player--1');
   player1Section.classList.remove('player--winner');
+
+  document.getElementById('winnerAnnouncement0').textContent="";
+  document.getElementById('winnerAnnouncement1').textContent="";
 }
 
 function HoldCurrentStored() {
@@ -94,16 +98,18 @@ function checkWinner() {
     document.getElementById('score--1').textContent
   );
 
-  if (scorePlayer0 >= 100) {
+  if (scorePlayer0 >= 10) {
     const player0Section = document.querySelector('.player--0');
     player0Section.classList.add('player--winner');
-    setTimeout(restart, 3000);
+    document.getElementById('winnerAnnouncement0').textContent="👑 Winner";
+    setTimeout(restart, 5000);
     
   }
-  if (scorePlayer1 >= 100) {
+  if (scorePlayer1 >= 10) {
     const player1Section = document.querySelector('.player--1');
     player1Section.classList.add('player--winner');
-    setTimeout(restart, 3000);
+    document.getElementById('winnerAnnouncement1').textContent="👑 Winner";
+    setTimeout(restart, 5000);
     
   }
 }
