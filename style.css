@@ -63,6 +63,35 @@ main {
   margin-bottom: auto;
 }
 
+
+.progressbar {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.progress {
+  width: 100%;
+  background-color: #f47c7c;
+  height: 0%;
+  transition: height 0.7s ease-in-out;
+}
+
+#progress-bar-0 {
+  width: 15%;
+  height: 0%;
+  position: absolute;
+  left: 0;
+}
+
+#progress-bar-1 {
+  width: 14%;
+  height: 0%;
+  position: absolute;
+  right: 0;
+  z-index: -5;
+}
+
 .player--active {
   background-color: rgba(255, 255, 255, 0.4);
 }
