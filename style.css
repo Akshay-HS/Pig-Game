@@ -63,13 +63,11 @@ main {
   margin-bottom: auto;
 }
 
-
 .progressbar {
   width: 15%;
   height: 100%;
   display: flex;
   align-items: flex-end;
-  
 }
 .progress {
   width: 100%;
@@ -196,11 +194,11 @@ main {
   color: #c7365f;
 }
 
-#winnerAnnouncement0{
-  color:white;
+#winnerAnnouncement0 {
+  color: white;
   margin-bottom: 20px;
 }
-#winnerAnnouncement1{
-  color:white;
+#winnerAnnouncement1 {
+  color: white;
   margin-bottom: 20px;
 }

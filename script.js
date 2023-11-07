@@ -56,8 +56,12 @@ function restart() {
   const player1Section = document.querySelector('.player--1');
   player1Section.classList.remove('player--winner');
 
-  document.getElementById('winnerAnnouncement0').textContent="";
-  document.getElementById('winnerAnnouncement1').textContent="";
+  document.getElementById('winnerAnnouncement0').textContent = '';
+  document.getElementById('winnerAnnouncement1').textContent = '';
+  const progressBar1 = document.getElementById(`progress-bar-${0}`);
+  progressBar1.style.height = `${0}%`;
+  const progressBar2 = document.getElementById(`progress-bar-${1}`);
+  progressBar2.style.height = `${0}%`;
 }
 
 function HoldCurrentStored() {
@@ -81,13 +85,13 @@ function HoldCurrentStored() {
   document.getElementById(`score--${index}`).textContent =
     storedvalueint.toString();
   checkWinner();
-//   const percentage = (storedvalueint / 100) * 100;
-//   updateProgressBar(index, storedvalueint);
-// }
-// function updateProgressBar(player, value) {
-//   const progressBar = document.getElementById(`progress-bar-${player}`);
-//   value = Math.max(0, Math.min(value, 100));
-//   progressBar.style.height = `${value}%`; // Use height to adjust the vertical progress
+  const percentage = (storedvalueint / 100) * 100;
+  updateProgressBar(index, storedvalueint);
+}
+function updateProgressBar(player, value) {
+  const progressBar = document.getElementById(`progress-bar-${player}`);
+  value = Math.max(0, Math.min(value, 100));
+  progressBar.style.height = `${value}%`; // Use height to adjust the vertical progress
 }
 
 function checkWinner() {
@@ -98,24 +102,21 @@ function checkWinner() {
     document.getElementById('score--1').textContent
   );
 
-  if (scorePlayer0 >= 10) {
+  if (scorePlayer0 >= 100) {
     const player0Section = document.querySelector('.player--0');
     player0Section.classList.add('player--winner');
-    document.getElementById('winnerAnnouncement0').textContent="👑 Winner";
+    document.getElementById('winnerAnnouncement0').textContent = '👑 Winner';
     setTimeout(restart, 5000);
-    
   }
-  if (scorePlayer1 >= 10) {
+  if (scorePlayer1 >= 100) {
     const player1Section = document.querySelector('.player--1');
     player1Section.classList.add('player--winner');
-    document.getElementById('winnerAnnouncement1').textContent="👑 Winner";
+    document.getElementById('winnerAnnouncement1').textContent = '👑 Winner';
     setTimeout(restart, 5000);
-    
   }
 }
-function ColorSwitch()
-{
-  let s=document.getElementsByTagName("section");
-s[0].classList.toggle("player--active");
-s[1].classList.toggle("player--active");
+function ColorSwitch() {
+  let s = document.getElementsByTagName('section');
+  s[0].classList.toggle('player--active');
+  s[1].classList.toggle('player--active');
 }
