@@ -73,6 +73,7 @@ function HoldCurrentStored() {
   } else {
     currentPlayer = 0;
   }
+
   let currentvalue = document.getElementById(`current--${index}`).textContent;
   let storedvalue = document.getElementById(`score--${index}`).textContent;
   let currentvalueint = parseInt(currentvalue);
@@ -106,12 +107,14 @@ function checkWinner() {
     const player0Section = document.querySelector('.player--0');
     player0Section.classList.add('player--winner');
     document.getElementById('winnerAnnouncement0').textContent = '👑 Winner';
+    triggerConfetti();
     setTimeout(restart, 5000);
   }
   if (scorePlayer1 >= 100) {
     const player1Section = document.querySelector('.player--1');
     player1Section.classList.add('player--winner');
     document.getElementById('winnerAnnouncement1').textContent = '👑 Winner';
+    triggerConfetti();
     setTimeout(restart, 5000);
   }
 }
@@ -120,3 +123,20 @@ function ColorSwitch() {
   s[0].classList.toggle('player--active');
   s[1].classList.toggle('player--active');
 }
+function triggerConfetti() {
+  const confettiContainer = document.getElementById('confetti-container');
+
+  for (let i = 0; i < 100; i++) { // Create 100 confetti particles
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.animationDelay = Math.random() * 2 + 's';
+    confettiContainer.appendChild(confetti);
+  }
+
+  setTimeout(() => {
+    // Clear confetti after 5 seconds
+    confettiContainer.innerHTML = '';
+  }, 5000);
+}
+
